@@ -11,6 +11,10 @@ let age = document.getElementById('age');
 let telephone = document.getElementById('phone');
 let email = document.getElementById('email');
 
+
+
+showContactBtn.addEventListener('click', toggleDisplayContacts);
+
 /*
 let newTr = document.createElement("tr");
 let tdName = document.createElement("td");
@@ -39,18 +43,57 @@ document.getElementById('table').appendChild(tdPhone);
 document.getElementById('table').appendChild(tdEmail);
 } */
 
-function addContact(event) {
+function submit(event) {
+  addNewContact();
+   /* let contactsArray = [];
+
+  let newContact = `
+  <th>Name</th>
+  <td>${form.name.value}</td> 
+  <th>Age</th>
+  <td>${form.age.value}</td>
+  <th>Phone</th>
+  <td>${form.phone.value}</td>
+  <th>Email</th>
+  <td>${form.email.value}</td>`; 
+  let getInfo = table.innerHTML =  `<th>Name</th>
+  <td class="info">${form.name.value}</td> 
+  <th>Age</th>
+  <td class="info">${form.age.value}</td>
+  <th>Phone</th>
+  <td class="info">${form.phone.value}</td>
+  <th>Email</th>
+  <td class="info">${form.email.value}</td>`;
+  contactsArray.push(getInfo);*/
+
   event.preventDefault();   
-  let newContact = `<td> ${form.name.value} </td> <td> ${form.age.value} </td> <td> ${form.phone.value} </td> <td> ${form.email.value} </td>`;
-  table.innerHTML = newContact;
+}
+
+function addNewContact() {
+  let contactsArray = [];
+  let getInfo = table.innerHTML =  `<th>Name:</th>
+  <td class="info">${form.name.value}</td> 
+  <th>Age:</th>
+  <td class="info">${form.age.value}</td>
+  <th>Phone:</th>
+  <td class="info">${form.phone.value}</td>
+  <th>Email:</th>
+  <td class="info">${form.email.value}</td>`;
+  contactsArray.push(getInfo);
+  showContactDiv.innerHTML += '<br><br>' + contactsArray;  
 }
 
 
+function toggleDisplayContacts() {
+  if(table.style.display === 'none') {
+    table.style.display = 'block';
+  } else {
+    table.style.display = 'none';
+  }
+}
 
 
-
-
-form.addEventListener('submit', addContact);
+form.addEventListener('submit', submit);
 
 
 
