@@ -1,15 +1,18 @@
-// buttons
-let deleteBtn = document.createElement('button');
-
 // form / table
 let form = document.getElementById('form');
 let table = document.getElementById('table');
 let tableBody = document.querySelector('.tableBody');
 
+document.addEventListener('click', function (e) {
+  if (e.target.className === 'btn-delete') {
+    console.log('LISTEN UP!');
+  }
+});
+
 // form values
 let name = document.getElementById('name');
 let age = document.getElementById('age');
-let telephone = document.getElementById('phone');
+let telephone = document.getElementById('telephone');
 let email = document.getElementById('email');
 
 function submit(e) {
@@ -25,16 +28,13 @@ function addNewContact() {
   contactsArray.push(`
   <td class="info">${form.name.value}</td>   
   <td class="info">${form.age.value}</td> 
-  <td class="info">${form.phone.value}</td>
+  <td class="info">${form.telephone.value}</td>
   <td class="info">${form.email.value}</td>`);
-  tableBody.innerHTML += contactsArray + '<br>';
+  tableBody.innerHTML +=
+    contactsArray + '<br>' + "<button class='btn-delete'>Delete</button>";
 }
 
-function deleteContact() {
-  deleteBtn.setAttribute('class', 'btn-delete');
-  deleteBtn.appendChild(document.createTextNode('Delete'));
-  info.appendChild(deleteBtn);
-}
+function deleteContact() {}
 
 // show contacts
 function displayContacts() {
@@ -42,5 +42,13 @@ function displayContacts() {
 }
 
 // EventListeners
+
+// send sumbit "form"
 form.addEventListener('submit', submit);
-deleteBtn.addEventListener('click', deleteContact);
+
+// delete contact event
+document.addEventListener('click', function (e) {
+  if (e.target.className === 'btn-delete') {
+    console.log('testing delete btn');
+  }
+});
