@@ -20,21 +20,23 @@ function onAddContact(e) {
       <td><button class="btn-delete">Delete</button></td>
     <tr>
   `;
+}
 
-  displayContacts();
+function removeContact(e) {
+  if (!e.target.classList.contains('btn-delete')) {
+    return;
+  }
+  const deleteBtn = e.target;
+  deleteBtn.closest('tr').remove();
 }
 
 // show contacts
-function displayContacts() {
-  table.style.display = 'block';
-}
+// function displayContacts() {
+//   table.style.display = 'block';
+// }
 
 // EventListeners
 form.addEventListener('submit', onAddContact);
 
 // Delete btn for contact
-document.addEventListener('click', function (e) {
-  if (e.target.className === 'btn-delete') {
-    console.log('LISTEN UP!');
-  }
-});
+document.addEventListener('click', removeContact);
