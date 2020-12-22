@@ -23,16 +23,6 @@ function submit(event) {
 function addNewContact() {
   let contactsArray = [];
 
-  /*
-  let newContact = `<th>Name:</th>
-  <td class="info">${form.name.value}</td> 
-  <th>Age:</th>
-  <td class="info">${form.age.value}</td>
-  <th>Phone:</th>
-  <td class="info">${form.phone.value}</td>
-  <th>Email:</th>
-  <td class="info">${form.email.value}</td>`;  */
-
   contactsArray.push(`
   <td class="info">${form.name.value}</td>   
   <td class="info">${form.age.value}</td> 
