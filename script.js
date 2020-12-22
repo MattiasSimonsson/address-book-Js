@@ -24,19 +24,6 @@ function onAddContact(e) {
   displayContacts();
 }
 
-function addNewContact(e) {
-  /*let contactsArray = [];
-
-  contactsArray.push(`
-  <td class="info">${form.name.value}</td>   
-  <td class="info">${form.age.value}</td> 
-  <td class="info">${form.telephone.value}</td>
-  <td class="info">${form.email.value}</td>  
-<br> <button class='btn-delete'>Delete</button>`); */
-}
-
-function deleteContact() {}
-
 // show contacts
 function displayContacts() {
   table.style.display = 'block';
