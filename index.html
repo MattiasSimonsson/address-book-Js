@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>address book</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>address book</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-  <h1>add a new contact</h1>
-  <div class="wrapper">   
+  <body>
+    <h1>add a new contact</h1>
+    <div class="wrapper">
+      <table id="table">
+        <tr>
+          <th>Name:</th>
+          <th>Age:</th>
+          <th>Phone:</th>
+          <th>Email:</th>
+        </tr>
+        <tbody class="tableBody">
+          <tr></tr>
+        </tbody>
+      </table>
 
-    <table id="table">
-
-
-    </table>
-     
       <form id="form">
-        <label for="name"></label><br>
-        <input type="text" id="name" placeholder="name here"><br>
-        <label for="age"></label><br>
-        <input type="text" id="age" placeholder="your age"><br>
-        <label for="telephone"></label><br>
-        <input type="text" id="phone" placeholder="mobile number"><br>
-        <label for="email"></label><br>
-        <input type="text" id="email" placeholder="email.."><br><br>
-        <button id="addContact" type="submit">Submit contact</button><br><br>
-      </form>      
+        <label for="name"></label><br />
+        <input type="text" id="name" placeholder="name here" /><br />
+        <label for="age"></label><br />
+        <input type="text" id="age" placeholder="your age" /><br />
+        <label for="telephone"></label><br />
+        <input type="text" id="phone" placeholder="mobile number" /><br />
+        <label for="email"></label><br />
+        <input type="text" id="email" placeholder="email.." /><br /><br />
+        <button id="addContact" type="submit">Submit contact</button
+        ><br /><br />
+      </form>
 
-    <button type="button" id="showBtn">Show contacts</button>
-  
+      <button type="button" id="showBtn">Show contacts</button>
 
-    <div id="showContact-div">
-
+      <div id="showContact-div"></div>
     </div>
-
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
