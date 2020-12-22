@@ -11,14 +11,16 @@
     <h1>add a new contact</h1>
     <div class="wrapper">
       <table id="table">
-        <tr>
-          <th>Name:</th>
-          <th>Age:</th>
-          <th>Phone:</th>
-          <th>Email:</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Name:</th>
+            <th>Age:</th>
+            <th>Phone:</th>
+            <th>Email:</th>
+          </tr>
+        </thead>
         <tbody class="tableBody">
-          <tr></tr>
+          
         </tbody>
       </table>
 
@@ -31,14 +33,10 @@
         <input type="text" id="phone" placeholder="mobile number" /><br />
         <label for="email"></label><br />
         <input type="text" id="email" placeholder="email.." /><br /><br />
-        <button id="addContact" type="submit">Submit contact</button
+        <button type="submit">Submit contact</button
         ><br /><br />
-      </form>
+      </form>      
 
-      <button type="button" id="showBtn">Show contacts</button>
-
-      <div id="showContact-div"></div>
-    </div>
     <script src="script.js"></script>
   </body>
 </html>

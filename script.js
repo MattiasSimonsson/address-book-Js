@@ -1,12 +1,10 @@
-let showContactBtn = document.getElementById('showBtn');
+// buttons
 let deleteBtn = document.createElement('button');
-let submitContact = document.getElementById('addContact');
-let showContactDiv = document.getElementById('showContact-div');
-let showContacts = document.querySelector('.show-contacts');
 
+// form / table
+let form = document.getElementById('form');
 let table = document.getElementById('table');
 let tableBody = document.querySelector('.tableBody');
-let form = document.getElementById('form');
 
 // form values
 let name = document.getElementById('name');
@@ -14,10 +12,11 @@ let age = document.getElementById('age');
 let telephone = document.getElementById('phone');
 let email = document.getElementById('email');
 
-function submit(event) {
+function submit(e) {
   addNewContact();
+  displayContacts();
 
-  event.preventDefault();
+  e.preventDefault();
 }
 
 function addNewContact() {
@@ -34,18 +33,14 @@ function addNewContact() {
 function deleteContact() {
   deleteBtn.setAttribute('class', 'btn-delete');
   deleteBtn.appendChild(document.createTextNode('Delete'));
-  showContactDiv.appendChild(deleteBtn);
+  info.appendChild(deleteBtn);
 }
 
-function toggleDisplayContacts() {
-  if (table.style.display === 'none') {
-    table.style.display = 'block';
-  } else {
-    table.style.display = 'none';
-  }
+// show contacts
+function displayContacts() {
+  table.style.display = 'block';
 }
 
 // EventListeners
 form.addEventListener('submit', submit);
-showContactBtn.addEventListener('click', toggleDisplayContacts);
 deleteBtn.addEventListener('click', deleteContact);
