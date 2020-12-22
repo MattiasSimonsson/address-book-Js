@@ -22,12 +22,15 @@ function onAddContact(e) {
   `;
 }
 
-function removeContact(e) {
-  if (!e.target.classList.contains('btn-delete')) {
-    return;
+function deleteContact(e) {
+  if (e.target.className === 'btn-delete') {
+    const deleteBtn = e.target;
+    if (confirm('Do you really want to remove this contact?')) {
+      deleteBtn.closest('tr').remove();
+    } else {
+      return false;
+    }
   }
-  const deleteBtn = e.target;
-  deleteBtn.closest('tr').remove();
 }
 
 // show contacts
@@ -39,4 +42,4 @@ function removeContact(e) {
 form.addEventListener('submit', onAddContact);
 
 // Delete btn for contact
-document.addEventListener('click', removeContact);
+document.addEventListener('click', deleteContact);
