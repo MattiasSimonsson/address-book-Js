@@ -1,13 +1,7 @@
 // form / table
 let form = document.getElementById('form');
 let table = document.getElementById('table');
-let tableBody = document.querySelector('.tableBody');
-
-document.addEventListener('click', function (e) {
-  if (e.target.className === 'btn-delete') {
-    console.log('LISTEN UP!');
-  }
-});
+let tableBody = document.querySelector('tbody');
 
 // form values
 let name = document.getElementById('name');
@@ -15,23 +9,30 @@ let age = document.getElementById('age');
 let telephone = document.getElementById('telephone');
 let email = document.getElementById('email');
 
-function submit(e) {
-  addNewContact();
-  displayContacts();
-
+function onAddContact(e) {
   e.preventDefault();
+  tableBody.innerHTML += `
+    <tr>
+      <td>${form.name.value}</td>
+      <td>${form.age.value}</td>
+      <td>${form.telephone.value}</td>
+      <td>${form.email.value}</td>
+      <td><button class="btn-delete">Delete</button></td>
+    <tr>
+  `;
+
+  displayContacts();
 }
 
-function addNewContact() {
-  let contactsArray = [];
+function addNewContact(e) {
+  /*let contactsArray = [];
 
   contactsArray.push(`
   <td class="info">${form.name.value}</td>   
   <td class="info">${form.age.value}</td> 
   <td class="info">${form.telephone.value}</td>
-  <td class="info">${form.email.value}</td>`);
-  tableBody.innerHTML +=
-    contactsArray + '<br>' + "<button class='btn-delete'>Delete</button>";
+  <td class="info">${form.email.value}</td>  
+<br> <button class='btn-delete'>Delete</button>`); */
 }
 
 function deleteContact() {}
@@ -42,13 +43,11 @@ function displayContacts() {
 }
 
 // EventListeners
+form.addEventListener('submit', onAddContact);
 
-// send sumbit "form"
-form.addEventListener('submit', submit);
-
-// delete contact event
+// Delete btn for contact
 document.addEventListener('click', function (e) {
   if (e.target.className === 'btn-delete') {
-    console.log('testing delete btn');
+    console.log('LISTEN UP!');
   }
 });
