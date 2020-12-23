@@ -17,20 +17,10 @@ function onAddContact(e) {
       <td>${form.age.value}</td>
       <td>${form.telephone.value}</td>
       <td>${form.email.value}</td>
+      <td><button class="btn-edit">Edit</button></td>
       <td><button class="btn-delete">Delete</button></td>
     <tr>
   `;
-}
-
-function deleteContact(e) {
-  if (e.target.className === 'btn-delete') {
-    const deleteBtn = e.target;
-    if (confirm('Do you really want to remove this contact?')) {
-      deleteBtn.closest('tr').remove();
-    } else {
-      return false;
-    }
-  }
 }
 
 // show contacts
@@ -42,4 +32,32 @@ function deleteContact(e) {
 form.addEventListener('submit', onAddContact);
 
 // Delete btn for contact
-document.addEventListener('click', deleteContact);
+tableBody.addEventListener('click', (event) => {
+  // remove contact -->
+  const button = event.target;
+  const tr = button.parentNode;
+  if (event.target.classList.contains('btn-delete')) {
+    if (confirm('Do you really want to remove this contact?')) {
+      button.closest('tr').remove();
+    } else {
+      return false;
+    }
+  }
+
+  // edit contact -->
+  if ('TD' === event.target.tagName) {
+    let value = event.target.textContent;
+
+    let input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('value', value);
+
+    input.addEventListener('blur', (event) => {
+      event.target.parentNode.textContent = event.target.value;
+    });
+
+    event.target.textContent = '';
+    event.target.appendChild(input);
+    input.select();
+  }
+});
